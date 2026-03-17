@@ -1,11 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>The Glitched Code Archive</title>
+<meta charset="UTF-8">
+<title>The Glitched Code Archive</title>
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: #e00000;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+  background: #0a0a0a;
+  border-bottom: 2px solid red;
+  padding: 25px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+/* GLITCH EFFECT */
+.header::before,
+.header::after {
+  content: "The Glitched Code Archive";
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0.6;
+}
+
+.header::before {
+  color: red;
+  animation: glitch 1.5s infinite;
+}
+
+.header::after {
+  color: white;
+  animation: glitch 2s infinite reverse;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0px, 0px); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  justify-content: center;
+  background: #050505;
+  border-bottom: 1px solid red;
+}
+
+.nav a {
+  color: red;
+  text-decoration: none;
+  padding: 15px 30px;
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  background: red;
+  color: black;
+}
+
+/* CONTENT */
+.content {
+  padding: 50px;
+  text-align: center;
+}
+
+/* DOWNLOAD BOX */
+.download-box {
+  margin-top: 50px;
+  padding: 25px;
+  border: 1px solid red;
+  display: inline-block;
+  background: rgba(255,0,0,0.05);
+}
+
+/* BUTTON */
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: red;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.download-btn:hover {
+  background: darkred;
+}
+
+/* FAKE LOG TEXT */
+.log {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #ff4444;
+  opacity: 0.8;
+}
+</style>
 </head>
-<body style="background:black; color:red; font-family:monospace;">
-  <h1>The Glitched Code Archive</h1>
-  <p>Log file detected.</p>
-  <p>Do not continue.</p>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  The Glitched Code Archive
+</div>
+
+<!-- NAVBAR -->
+<div class="nav">
+  <a href="#">Home</a>
+  <a href="#download">Download Mod</a>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <h2>System Status: Unstable</h2>
+  <p>Server initialized successfully.</p>
+  <p>Unexpected behavior detected.</p>
+  <p>Some players are no longer recognized.</p>
+
+  <!-- DOWNLOAD -->
+  <div id="download" class="download-box">
+    <h3>Download Mod</h3>
+    <p>Version: 7.0</p>
+
+    <a class="download-btn" href="https://github.com/unkn0wnBeaver/the-glitched-code-archive-/releases/download/the-glitched-code/the-glitched-code-real-7.0-neoforge-1.21.4.jar">
+      Download
+    </a>
+
+    <p class="log">[WARN] File integrity cannot be verified.</p>
+  </div>
+
+  <!-- EXTRA LORE -->
+  <div class="log">
+    <p>[INFO] Loading archived player data...</p>
+    <p>[ERROR] UUID mismatch detected</p>
+    <p>[WARN] Instance not found</p>
+    <p>[INFO] Reconnecting...</p>
+  </div>
+
+</div>
+
 </body>
 </html>
