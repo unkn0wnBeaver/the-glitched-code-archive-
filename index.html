@@ -79,19 +79,22 @@ body {
 
 /* BOX */
 .box {
-  margin-top: 50px;
+  margin: 50px auto;          /* Center horizontally */
   padding: 25px;
   border: 1px solid red;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* Center content horizontally */
+  justify-content: center;    /* Center content vertically inside the box */
   background: rgba(255,0,0,0.05);
   max-width: 800px;
-  text-align: left;
+  text-align: center;         /* Center text */
 }
 
 /* BUTTON */
 .download-btn {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 25px;            /* Center spacing */
   padding: 12px 25px;
   background: red;
   color: black;
@@ -204,7 +207,7 @@ body {
   const aboutSection = document.getElementById('about');
   const downloadSection = document.getElementById('download');
 
-  // Optionally show home first and hide download
+  // Show home content first, hide download
   aboutSection.style.display = 'block';
   downloadSection.style.display = 'none';
 
