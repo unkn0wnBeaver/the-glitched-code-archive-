@@ -10,7 +10,6 @@ body {
   background: #000;
   color: #e00000;
   font-family: monospace;
-  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -31,7 +30,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .header::before {
@@ -45,12 +44,12 @@ body {
 }
 
 @keyframes glitch {
-  0% { transform: translate(0px, 0px); }
-  20% { transform: translate(-2px, 1px); }
-  40% { transform: translate(2px, -1px); }
-  60% { transform: translate(-1px, 2px); }
-  80% { transform: translate(1px, -2px); }
-  100% { transform: translate(0px, 0px); }
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-2px,1px); }
+  40% { transform: translate(2px,-1px); }
+  60% { transform: translate(-1px,2px); }
+  80% { transform: translate(1px,-2px); }
+  100% { transform: translate(0,0); }
 }
 
 /* NAVBAR */
@@ -65,7 +64,6 @@ body {
   color: red;
   text-decoration: none;
   padding: 15px 30px;
-  transition: 0.2s;
 }
 
 .nav a:hover {
@@ -79,13 +77,15 @@ body {
   text-align: center;
 }
 
-/* DOWNLOAD BOX */
-.download-box {
+/* BOX */
+.box {
   margin-top: 50px;
   padding: 25px;
   border: 1px solid red;
   display: inline-block;
   background: rgba(255,0,0,0.05);
+  max-width: 800px;
+  text-align: left;
 }
 
 /* BUTTON */
@@ -97,17 +97,16 @@ body {
   color: black;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.2s;
 }
 
 .download-btn:hover {
   background: darkred;
 }
 
-/* FAKE LOG TEXT */
+/* LOG TEXT */
 .log {
-  margin-top: 40px;
-  font-size: 14px;
+  margin-top: 20px;
+  font-size: 13px;
   color: #ff4444;
   opacity: 0.8;
 }
@@ -123,7 +122,7 @@ body {
 
 <!-- NAVBAR -->
 <div class="nav">
-  <a href="#">Home</a>
+  <a href="#about">Home</a>
   <a href="#download">Download Mod</a>
 </div>
 
@@ -133,10 +132,51 @@ body {
   <h2>System Status: Unstable</h2>
   <p>Server initialized successfully.</p>
   <p>Unexpected behavior detected.</p>
-  <p>Some players are no longer recognized.</p>
+
+  <!-- README SECTION -->
+  <div id="about" class="box">
+    <h3>#THE GLITCHED CODE ARCHIVE</h3>
+
+    <p>A Minecraft Horror mod</p>
+
+    <p>
+    This is an archive of the Minecraft ARG-style horror mod The Glitched Code. 
+    The mod is very similar to The Broken Script. The Glitched Code has various 
+    glitched entities and anomalies, but it is centered on affecting you physiologically.
+    </p>
+
+    <p>
+    It started as a normal Minecraft server, but then the logs started to corrupt...
+    </p>
+
+    <p>
+    I do not have the responsibillity for any results that may happen when playing this mod. 
+    DISCLAIMERS: 
+      
+    ALL EVENTS IN THIS MOD IS FOR PURE FUN ONLY AND THE MOD IS NOT A VIRUS.
+
+    THE MOD WILL GRIEF YOUR WORLD. 
+      
+    THE MOD WILL WRITE TXT DOCUMENTS ON YOUR DESKTOP.
+      
+    THE MOD WILL DESTROY YOUR BUILDS. 
+      
+    HE MOD MAY SHUT DOWN YOUR PC.
+    </p>
+
+    <p>
+    Please pay attention to when a update is uploaded to this site, as the updates often include a lot new.
+    </p>
+
+    <p class="log">
+      [INFO] Archive loaded<br>
+      [WARN] Some data missing<br>
+      [ERROR] Source cannot be verified
+    </p>
+  </div>
 
   <!-- DOWNLOAD -->
-  <div id="download" class="download-box">
+  <div id="download" class="box">
     <h3>Download Mod</h3>
     <p>Version: 7.0</p>
 
@@ -147,12 +187,12 @@ body {
     <p class="log">[WARN] File integrity cannot be verified.</p>
   </div>
 
-  <!-- EXTRA LORE -->
+  <!-- EXTRA LOGS -->
   <div class="log">
     <p>[INFO] Loading archived player data...</p>
     <p>[ERROR] UUID mismatch detected</p>
     <p>[WARN] Instance not found</p>
-    <p>[INFO] Reconnecting...</p>
+    <p>[INFO] Attempting reconnect...</p>
   </div>
 
 </div>
