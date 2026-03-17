@@ -1,11 +1,137 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Glitched Code Archive</title>
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: #e00000;
+  font-family: monospace;
+}
+
+/* HEADER */
+.header {
+  background: #0a0a0a;
+  border-bottom: 2px solid red;
+  padding: 25px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+/* GLITCH EFFECT */
+.header::before,
+.header::after {
+  content: "The Glitched Code Archive";
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+
+.header::before {
+  color: red;
+  animation: glitch 1.5s infinite;
+}
+
+.header::after {
+  color: white;
+  animation: glitch 2s infinite reverse;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-2px,1px); }
+  40% { transform: translate(2px,-1px); }
+  60% { transform: translate(-1px,2px); }
+  80% { transform: translate(1px,-2px); }
+  100% { transform: translate(0,0); }
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  justify-content: center;
+  background: #050505;
+  border-bottom: 1px solid red;
+}
+
+.nav a {
+  color: red;
+  text-decoration: none;
+  padding: 15px 30px;
+}
+
+.nav a:hover {
+  background: red;
+  color: black;
+}
+
+/* CONTENT */
+.content {
+  padding: 50px;
+  text-align: center;
+}
+
+/* BOX */
+.box {
+  margin-top: 50px;
+  padding: 25px;
+  border: 1px solid red;
+  display: inline-block;
+  background: rgba(255,0,0,0.05);
+  max-width: 800px;
+  text-align: left;
+}
+
+/* BUTTON */
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: red;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.download-btn:hover {
+  background: darkred;
+}
+
+/* LOG TEXT */
+.log {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ff4444;
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  The Glitched Code Archive
+</div>
+
 <!-- NAVBAR -->
 <div class="nav">
-  <a href="#" id="home-btn">Home</a>
-  <a href="#" id="download-btn">Download Mod</a>
+  <a href="#about">Home</a>
+  <a href="#download">Download Mod</a>
 </div>
 
 <!-- CONTENT -->
 <div class="content">
+
+  <h2>System Status: Unstable</h2>
+  <p>Server initialized successfully.</p>
+  <p>Unexpected behavior detected.</p>
 
   <!-- README SECTION -->
   <div id="about" class="box">
@@ -61,31 +187,39 @@
     <p class="log">[WARN] File integrity cannot be verified.</p>
   </div>
 
+  <!-- EXTRA LOGS -->
+  <div class="log">
+    <p>[INFO] Loading archived player data...</p>
+    <p>[ERROR] UUID mismatch detected</p>
+    <p>[WARN] Instance not found</p>
+    <p>[INFO] Attempting reconnect...</p>
+  </div>
+
 </div>
 
-<!-- JAVASCRIPT -->
+<!-- JAVASCRIPT TOGGLE HOME/DOWNLOAD -->
 <script>
-  // Get elements
-  const homeBtn = document.getElementById('home-btn');
-  const downloadBtn = document.getElementById('download-btn');
+  const homeBtn = document.querySelector('.nav a[href="#about"]');
+  const downloadBtn = document.querySelector('.nav a[href="#download"]');
   const aboutSection = document.getElementById('about');
   const downloadSection = document.getElementById('download');
 
-  // Initially show home, hide download
+  // Optionally show home first and hide download
   aboutSection.style.display = 'block';
   downloadSection.style.display = 'none';
 
-  // Home button click
   homeBtn.addEventListener('click', function(e) {
-    e.preventDefault(); // prevent link jump
+    e.preventDefault();
     aboutSection.style.display = 'block';
     downloadSection.style.display = 'none';
   });
 
-  // Download button click
   downloadBtn.addEventListener('click', function(e) {
     e.preventDefault();
     aboutSection.style.display = 'none';
     downloadSection.style.display = 'block';
   });
 </script>
+
+</body>
+</html>
