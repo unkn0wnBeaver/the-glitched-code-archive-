@@ -28,7 +28,6 @@ body {
   position: relative;
 }
 
-/* GLITCH EFFECT */
 .header::before,
 .header::after {
   content: "The Glitched Code Archive";
@@ -57,7 +56,7 @@ body {
   100% { transform: translate(0,0); }
 }
 
-/* NAVBAR */
+/* NAV */
 .nav {
   display: flex;
   justify-content: center;
@@ -68,7 +67,7 @@ body {
 .nav a {
   color: red;
   text-decoration: none;
-  padding: 15px 30px;
+  padding: 15px 20px;
 }
 
 .nav a:hover {
@@ -82,7 +81,6 @@ body {
   text-align: center;
 }
 
-/* BOX */
 .box {
   margin: 50px auto;
   padding: 25px;
@@ -130,7 +128,8 @@ body {
 <!-- NAV -->
 <div class="nav">
   <a href="#about">Home</a>
-  <a href="#download">Download Mod</a>
+  <a href="#latest">Download Latest</a>
+  <a href="#archive">Archive Downloads</a>
   <a href="#info">Archive Info</a>
 </div>
 
@@ -143,32 +142,50 @@ body {
     <p>A Minecraft Horror mod</p>
 
     <p>This is an archive of the Minecraft ARG-style horror mod The Glitched Code.</p>
-    <p>The mod is very similar to The Broken Script.</p>
-    <p>The Glitched Code has various glitched entities and anomalies, but it is centered on affecting you physiologically.</p>
+    <p>The mod has corrupted entities, anomalies, and unstable systems.</p>
 
-    <p>It started as a normal Minecraft server, but then the logs started to corrupt...</p>
+    <p>It started as a normal Minecraft server... then the logs started to corrupt.</p>
 
     <p class="log">
       [INFO] Archive loaded<br>
-      [WARN] Some data missing<br>
-      [ERROR] Source cannot be verified
+      [WARN] Data unstable<br>
+      [ERROR] Source corrupted
     </p>
   </div>
 
-  <!-- DOWNLOAD -->
-  <div id="download" class="box">
-    <h3>Download Mod</h3>
+  <!-- LATEST -->
+  <div id="latest" class="box">
+    <h3>Download Latest</h3>
     <p>Version: 7.2</p>
-    <p>Latest Up-To-Date</p>
+    <p>Latest Stable Release</p>
 
-    <a class="download-btn" href="https://github.com/unkn0wnBeaver/the-glitched-code-archive-/releases/download/the-glitched-code/the-glitched-code-7.2-neoforge-1.21.4.jar">
-      Download
+    <a class="download-btn" href="PASTE 7.2 LINK HERE">
+      Download 7.2
     </a>
 
-    <p class="log">[WARN] tylo122 left the game</p>
+    <p class="log">[WARN] latest build active</p>
   </div>
 
-  <!-- INFO (NEW PAGE) -->
+  <!-- ARCHIVE DOWNLOADS -->
+  <div id="archive" class="box">
+    <h3>Archive Downloads</h3>
+    <p>Older versions of The Glitched Code</p>
+
+    <p>Version 7.2</p>
+    <a class="download-btn" href="PASTE 7.2 LINK HERE">Download 7.2</a>
+
+    <p style="margin-top:20px;">Version 7.1</p>
+    <a class="download-btn" href="PASTE 7.1 LINK HERE">Download 7.1</a>
+
+    <p style="margin-top:20px;">Version 7.0</p>
+    <a class="download-btn" href="PASTE 7.0 LINK HERE">Download 7.0</a>
+
+    <p class="log">
+      [ARCHIVE] legacy builds loaded
+    </p>
+  </div>
+
+  <!-- INFO -->
   <div id="info" class="box">
     <h3>Archive Info</h3>
 
@@ -184,24 +201,22 @@ body {
 
     <h4>How to install</h4>
     <p>
-      Installation can be done in 2 ways. 
+      Installation can be done in 2 ways:<br><br>
+
       1. You download the JAR from this site and in CurseForge, you create a Profile for the correct
-      file (currently NeoForge 1.21.4) and drop the JAR into the profiles mods folder.
-      2. You use the correct modloader for the correcy file version (currently NeoForge 1.21.4) and drop the JAR into the installations
-      mods folder.
+      file (currently NeoForge 1.21.4) and drop the JAR into the profile's mods folder.<br><br>
+
+      2. You use the correct modloader for the correct file version (currently NeoForge 1.21.4) and drop the JAR into the installation's mods folder.
     </p>
 
     <h4>Version updates</h4>
     <p>
-      I get the version from the unknown creator and developer of the mod. It is not regulary and a new update may come out at any time.
-      Current latest version: 
-
-      7.2
+      I get the version from the unknown creator and developer of the mod. It is not regular and a new update may come out at any time.<br><br>
+      Current latest version: <b>7.2</b>
     </p>
 
     <p class="log">
       [INFO] archive data loaded<br>
-        
     </p>
   </div>
 
@@ -209,37 +224,32 @@ body {
 
 <script>
 const homeBtn = document.querySelector('.nav a[href="#about"]');
-const downloadBtn = document.querySelector('.nav a[href="#download"]');
+const latestBtn = document.querySelector('.nav a[href="#latest"]');
+const archiveBtn = document.querySelector('.nav a[href="#archive"]');
 const infoBtn = document.querySelector('.nav a[href="#info"]');
 
 const aboutSection = document.getElementById('about');
-const downloadSection = document.getElementById('download');
+const latestSection = document.getElementById('latest');
+const archiveSection = document.getElementById('archive');
 const infoSection = document.getElementById('info');
 
+function show(section) {
+  aboutSection.style.display = 'none';
+  latestSection.style.display = 'none';
+  archiveSection.style.display = 'none';
+  infoSection.style.display = 'none';
+  section.style.display = 'block';
+}
+
 aboutSection.style.display = 'block';
-downloadSection.style.display = 'none';
+latestSection.style.display = 'none';
+archiveSection.style.display = 'none';
 infoSection.style.display = 'none';
 
-homeBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  aboutSection.style.display = 'block';
-  downloadSection.style.display = 'none';
-  infoSection.style.display = 'none';
-});
-
-downloadBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  aboutSection.style.display = 'none';
-  downloadSection.style.display = 'block';
-  infoSection.style.display = 'none';
-});
-
-infoBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  aboutSection.style.display = 'none';
-  downloadSection.style.display = 'none';
-  infoSection.style.display = 'block';
-});
+homeBtn.addEventListener('click', e => { e.preventDefault(); show(aboutSection); });
+latestBtn.addEventListener('click', e => { e.preventDefault(); show(latestSection); });
+archiveBtn.addEventListener('click', e => { e.preventDefault(); show(archiveSection); });
+infoBtn.addEventListener('click', e => { e.preventDefault(); show(infoSection); });
 </script>
 
 </body>
