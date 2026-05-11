@@ -1,10 +1,11 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>The Glitched Code Archive</title>
 
-<!-- THIS LINE ADDS THE ICON -->
+<meta name="description" content="The Glitched Code Archive - Minecraft horror mod featuring corrupted logs, entities, anomalies, and ARG-style lore.">
+
 <link rel="icon" type="image/webp" href="https://i.imgur.com/6FvkatA_d.webp">
 
 <style>
@@ -83,22 +84,22 @@ body {
 
 /* BOX */
 .box {
-  margin: 50px auto;          
+  margin: 50px auto;
   padding: 25px;
   border: 1px solid red;
   display: flex;
   flex-direction: column;
-  align-items: center;        
-  justify-content: center;    
+  align-items: center;
+  justify-content: center;
   background: rgba(255,0,0,0.05);
   max-width: 800px;
-  text-align: center;         
+  text-align: center;
 }
 
 /* BUTTON */
 .download-btn {
   display: inline-block;
-  margin-top: 25px;            
+  margin-top: 25px;
   padding: 12px 25px;
   background: red;
   color: black;
@@ -110,7 +111,7 @@ body {
   background: darkred;
 }
 
-/* LOG TEXT */
+/* LOG */
 .log {
   margin-top: 20px;
   font-size: 13px;
@@ -122,21 +123,20 @@ body {
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
   The Glitched Code Archive
 </div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <div class="nav">
   <a href="#about">Home</a>
   <a href="#download">Download Mod</a>
+  <a href="#info">Archive Info</a>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
-  <!-- README SECTION -->
+  <!-- HOME -->
   <div id="about" class="box">
     <h3>#THE GLITCHED CODE ARCHIVE</h3>
 
@@ -147,16 +147,6 @@ body {
     <p>The Glitched Code has various glitched entities and anomalies, but it is centered on affecting you physiologically.</p>
 
     <p>It started as a normal Minecraft server, but then the logs started to corrupt...</p>
-
-    <p>I do not have the responsibillity for any results that may happen when playing this mod.</p>
-    <p>DISCLAIMERS:</p>
-    <p>ALL EVENTS IN THIS MOD IS FOR PURE FUN ONLY AND THE MOD IS NOT A VIRUS.</p>
-    <p>THE MOD WILL GRIEF YOUR WORLD.</p>
-    <p>THE MOD WILL WRITE TXT DOCUMENTS ON YOUR DESKTOP.</p>
-    <p>THE MOD WILL DESTROY YOUR BUILDS.</p>
-    <p>HE MOD MAY SHUT DOWN YOUR PC.</p>
-
-    <p>Please pay attention to when a update is uploaded to this site, as the updates often include a lot new.</p>
 
     <p class="log">
       [INFO] Archive loaded<br>
@@ -178,35 +168,71 @@ body {
     <p class="log">[WARN] tylo122 left the game</p>
   </div>
 
-  <!-- REPLACED LOGS -->
-  <div class="log">
-    the end is near
+  <!-- INFO (NEW PAGE) -->
+  <div id="info" class="box">
+    <h3>Archive Info</h3>
+
+    <h4>What is this archive?</h4>
+    <p>
+      The Glitched Code Archive is the official repository and information hub for the Minecraft horror mod "The Glitched Code".
+    </p>
+
+    <h4>Lore</h4>
+    <p>
+      A normal Minecraft world slowly became corrupted. Logs began changing, entities became unstable, and reality started to glitch.
+    </p>
+
+    <h4>How to install</h4>
+    <p>
+      Install Forge or NeoForge, download the mod, and place it into your mods folder.
+    </p>
+
+    <h4>Version updates</h4>
+    <p>
+      Each update expands corruption behavior, adds anomalies, and increases instability events.
+    </p>
+
+    <p class="log">
+      [INFO] archive data loaded<br>
+      [SYSTEM] corruption stable
+    </p>
   </div>
 
 </div>
 
-<!-- JAVASCRIPT TOGGLE HOME/DOWNLOAD -->
 <script>
-  const homeBtn = document.querySelector('.nav a[href="#about"]');
-  const downloadBtn = document.querySelector('.nav a[href="#download"]');
-  const aboutSection = document.getElementById('about');
-  const downloadSection = document.getElementById('download');
+const homeBtn = document.querySelector('.nav a[href="#about"]');
+const downloadBtn = document.querySelector('.nav a[href="#download"]');
+const infoBtn = document.querySelector('.nav a[href="#info"]');
 
-  // Show home content first, hide download
+const aboutSection = document.getElementById('about');
+const downloadSection = document.getElementById('download');
+const infoSection = document.getElementById('info');
+
+aboutSection.style.display = 'block';
+downloadSection.style.display = 'none';
+infoSection.style.display = 'none';
+
+homeBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   aboutSection.style.display = 'block';
   downloadSection.style.display = 'none';
+  infoSection.style.display = 'none';
+});
 
-  homeBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    aboutSection.style.display = 'block';
-    downloadSection.style.display = 'none';
-  });
+downloadBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  aboutSection.style.display = 'none';
+  downloadSection.style.display = 'block';
+  infoSection.style.display = 'none';
+});
 
-  downloadBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    aboutSection.style.display = 'none';
-    downloadSection.style.display = 'block';
-  });
+infoBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  aboutSection.style.display = 'none';
+  downloadSection.style.display = 'none';
+  infoSection.style.display = 'block';
+});
 </script>
 
 </body>
